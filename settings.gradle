@@ -1,0 +1,4 @@
+rootProject.name = 'luma_magento'
+include 'luma_magento_api'
+include 'luma_magento_ui'
+
