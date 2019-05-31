@@ -1,15 +1,18 @@
-buildscript{
+buildscript {
     repositories {
-        maven{
+        maven {
             url "https://plugins.gradle.org/m2/"
         }
     }
-    dependencies{
+    dependencies {
         classpath "io.franzbecker:gradle-lombok:2.1"
         classpath "io.qameta.allure:allure-gradle:2.5"
+
     }
+
 }
-subprojects{
+
+subprojects {
     apply plugin: 'java'
     apply plugin: 'io.franzbecker.gradle-lombok'
     apply plugin: 'io.qameta.allure'
@@ -17,4 +20,8 @@ subprojects{
     repositories {
         jcenter()
     }
+    dependencies{
+        compile group: 'io.qameta.allure', name: 'allure-testng', version: '2.10.0'
+    }
+
 }
