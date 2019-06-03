@@ -7,7 +7,6 @@ test{
 }
 
 allure {
-    autoconfigure = true
     version = '2.7.0'
     configuration = 'compile'
 }
