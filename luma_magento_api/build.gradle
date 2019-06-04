@@ -16,8 +16,6 @@ dependencies {
 }
 
 test {
-    useTestNG()
-
     systemProperties System.getProperties()
 
     testLogging {
@@ -28,7 +26,4 @@ test {
 
     test.outputs.upToDateWhen { false }
 }
-allure {
-    version = '2.7.0'
-    configuration = 'compile'
-}
+

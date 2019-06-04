@@ -1,13 +1,4 @@
 dependencies {
-    
     compile group: 'com.codeborne', name: 'selenide', version: '4.14.2'
-}
-test{
-    useTestNG()
-}
-
-allure {
-    version = '2.7.0'
-    configuration = 'compile'
 }
 
