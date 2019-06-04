@@ -1,4 +1,6 @@
 dependencies {
+    compile project(':luma_magento_api')
     compile group: 'com.codeborne', name: 'selenide', version: '4.14.2'
+    testImplementation('io.qameta.allure:allure-selenide:2.12.1')
 }
 

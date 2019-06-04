@@ -17,7 +17,7 @@ public class UserRegistrationTest extends BaseTest{
     public void testCanRegisterNewUser() {
         //given
         customer.customer(
-                userPayLoad.email("postman_" + randomAlphanumeric(2) + "@gorillagroup.com")
+                userPayLoad.email("automation_" + randomAlphanumeric(2) + "@gorillagroup.com")
                 .firstname("Test")
                 .lastname("Postman")
                 .websiteId(1)

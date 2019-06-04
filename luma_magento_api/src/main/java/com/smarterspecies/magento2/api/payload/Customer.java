@@ -1,3 +1,4 @@
+
 package com.smarterspecies.magento2.api.payload;
 
 import com.fasterxml.jackson.annotation.JsonProperty;

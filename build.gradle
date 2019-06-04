@@ -23,7 +23,9 @@ subprojects {
 
     allure {
         version = '2.7.0'
-        configuration = 'compile'
+        autoconfigure = true
+        aspectjweaver = true
+        allureJavaVersion = '2.12.1'
     }
     repositories {
         jcenter()
