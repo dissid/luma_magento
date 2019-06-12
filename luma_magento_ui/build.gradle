@@ -3,4 +3,15 @@ dependencies {
     compile group: 'com.codeborne', name: 'selenide', version: '4.14.2'
     testImplementation('io.qameta.allure:allure-selenide:2.12.1')
 }
+test {
+    systemProperties System.getProperties()
+
+    testLogging {
+        events "PASSED", "FAILED", "SKIPPED"
+        exceptionFormat = "full"
+        showStandardStreams = true
+    }
+
+    test.outputs.upToDateWhen { false }
+}
 

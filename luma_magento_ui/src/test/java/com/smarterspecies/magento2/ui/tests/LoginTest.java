@@ -15,7 +15,7 @@ public class LoginTest extends BaseTest {
     private final UserPayLoad userPayLoad = new UserPayLoad();
     private final UserApiService userApiService = new UserApiService();
 
-    @Test(enabled = false)
+    @Test
     public void testCanLogin() {
         String email = randomAlphanumeric(2);
         //given
