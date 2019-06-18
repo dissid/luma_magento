@@ -14,4 +14,9 @@ public class PaymentMethod{
 
 	@JsonProperty("method")
 	private String method;
+
+	@Override
+	public String toString() {
+		return "method='" + method + '\'';
+	}
 }

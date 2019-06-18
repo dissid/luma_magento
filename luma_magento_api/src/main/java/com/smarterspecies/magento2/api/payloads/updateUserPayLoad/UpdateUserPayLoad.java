@@ -15,4 +15,9 @@ public class UpdateUserPayLoad{
 
 	@JsonProperty("customer")
 	private CustomerData customer;
+
+	@Override
+	public String toString() {
+		return 	"" + customer;
+	}
 }

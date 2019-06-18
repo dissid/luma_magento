@@ -45,4 +45,19 @@ public class BillingAddress{
 
 	@JsonProperty("lastname")
 	private String lastname;
+
+	@Override
+	public String toString() {
+		return 	"firstname='" + firstname + '\'' +
+				", city='" + city + '\'' +
+				", street=" + street +
+				", regionId=" + regionId +
+				", postcode='" + postcode + '\'' +
+				", telephone='" + telephone + '\'' +
+				", region='" + region + '\'' +
+				", email='" + email + '\'' +
+				", countryId='" + countryId + '\'' +
+				", regionCode='" + regionCode + '\'' +
+				", lastname='" + lastname + '\'';
+	}
 }

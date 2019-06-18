@@ -5,7 +5,7 @@ import io.qameta.allure.Step;
 
 public class TokenApiService extends ApiService {
 
-    @Step("get token {token}")
+    @Step("get token for {token}")
     public String getToken(TokenPayLoad token) {
         return setup()
                 .body(token)

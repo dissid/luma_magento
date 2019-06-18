@@ -6,7 +6,7 @@ import io.restassured.response.Response;
 
 public class UserApiService extends ApiService {
 
-    @Step("registration a new user {customer}")
+    @Step("registration a new user")
     public Response registerNewUser(Customer customer) {
         return setup()
                 .body(customer)

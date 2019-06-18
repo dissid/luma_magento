@@ -19,4 +19,9 @@ public class TokenPayLoad {
     @JsonProperty("username")
     private String username;
 
+    @Override
+    public String toString() {
+        return  "password='" + password + '\'' +
+                ", username='" + username + '\'';
+    }
 }

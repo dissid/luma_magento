@@ -17,4 +17,10 @@ public class CreateOrderPayLoad{
 
 	@JsonProperty("billing_address")
 	private BillingAddress billingAddress;
+
+	@Override
+	public String toString() {
+		return 	"" + paymentMethod +
+				"," + billingAddress;
+	}
 }

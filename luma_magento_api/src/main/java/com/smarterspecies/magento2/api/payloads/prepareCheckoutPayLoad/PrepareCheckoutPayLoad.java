@@ -14,4 +14,9 @@ public class PrepareCheckoutPayLoad {
 
 	@JsonProperty("addressInformation")
 	private AddressInformation addressInformation;
+
+	@Override
+	public String toString() {
+		return 	"" + addressInformation;
+	}
 }

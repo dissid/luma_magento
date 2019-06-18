@@ -15,4 +15,9 @@ public class AddItemsToCartPayLoad {
 
     @JsonProperty("cartItem")
     private CartItem cartItem;
+
+    @Override
+    public String toString() {
+        return "" + cartItem;
+    }
 }

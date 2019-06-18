@@ -45,4 +45,19 @@ public class ShippingAddress{
 
 	@JsonProperty("lastname")
 	private String lastname;
+
+	@Override
+	public String toString() {
+		return "firstname='" + firstname + '\'' +
+				", city='" + city + '\'' +
+				", street=" + street +
+				", regionId=" + regionId +
+				", postcode='" + postcode + '\'' +
+				", telephone='" + telephone + '\'' +
+				", region='" + region + '\'' +
+				", countryId='" + countryId + '\'' +
+				", email='" + email + '\'' +
+				", regionCode='" + regionCode + '\'' +
+				", lastname='" + lastname + '\'';
+	}
 }

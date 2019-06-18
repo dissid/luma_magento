@@ -20,4 +20,11 @@ public class AddressInformation{
 
 	@JsonProperty("shipping_address")
 	private ShippingAddress shippingAddress;
+
+	@Override
+	public String toString() {
+		return  "shippingMethodCode='" + shippingMethodCode + '\'' +
+				", shippingCarrierCode='" + shippingCarrierCode + '\'' +
+				", shippingAddress=" + shippingAddress;
+	}
 }

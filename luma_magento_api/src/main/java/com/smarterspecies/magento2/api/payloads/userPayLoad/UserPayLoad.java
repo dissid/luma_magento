@@ -31,12 +31,11 @@ public class UserPayLoad {
 
     @Override
     public String toString() {
-        return "UserPayLoad{" +
+        return
                 "firstname='" + firstname + '\'' +
                 ", groupId=" + groupId +
                 ", websiteId=" + websiteId +
                 ", email='" + email + '\'' +
-                ", lastname='" + lastname + '\'' +
-                '}';
+                ", lastname='" + lastname + '\'';
     }
 }

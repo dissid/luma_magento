@@ -22,4 +22,11 @@ public class CartItem{
 	@JsonProperty("sku")
 	private String sku;
 
+
+	@Override
+	public String toString() {
+		return 	"qty=" + qty +
+				", quoteId='" + quoteId + '\'' +
+				", sku='" + sku + '\'';
+	}
 }

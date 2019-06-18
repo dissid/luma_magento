@@ -29,4 +29,14 @@ public class CustomerData {
 
 	@JsonProperty("lastname")
 	private String lastname;
+
+	@Override
+	public String toString() {
+		return  "firstname='" + firstname + '\'' +
+				", groupId=" + groupId +
+				", id=" + id +
+				", websiteId=" + websiteId +
+				", email='" + email + '\'' +
+				", lastname='" + lastname + '\'';
+	}
 }
