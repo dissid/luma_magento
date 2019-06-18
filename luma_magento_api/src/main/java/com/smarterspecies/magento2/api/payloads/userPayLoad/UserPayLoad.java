@@ -1,4 +1,4 @@
-package com.smarterspecies.magento2.api.payload;
+package com.smarterspecies.magento2.api.payloads.userPayLoad;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
@@ -29,5 +29,14 @@ public class UserPayLoad {
     @JsonProperty("lastname")
     private String lastname;
 
-
+    @Override
+    public String toString() {
+        return "UserPayLoad{" +
+                "firstname='" + firstname + '\'' +
+                ", groupId=" + groupId +
+                ", websiteId=" + websiteId +
+                ", email='" + email + '\'' +
+                ", lastname='" + lastname + '\'' +
+                '}';
+    }
 }

@@ -1,12 +1,14 @@
 package com.smarterspecies.magento2.ui.tests;
 
-import com.codeborne.selenide.Condition;
-import com.smarterspecies.magento2.api.payload.Customer;
-import com.smarterspecies.magento2.api.payload.UserPayLoad;
+import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.WebDriverRunner;
+import com.smarterspecies.magento2.api.payloads.userPayLoad.Customer;
+import com.smarterspecies.magento2.api.payloads.userPayLoad.UserPayLoad;
 import com.smarterspecies.magento2.api.services.UserApiService;
-import com.smarterspecies.magento2.ui.LoginPage;
-import com.smarterspecies.magento2.ui.MyAccountPage;
+import org.openqa.selenium.Cookie;
 import org.testng.annotations.Test;
+
+import java.util.Map;
 
 import static org.apache.commons.lang3.RandomStringUtils.randomAlphanumeric;
 
@@ -26,14 +28,17 @@ public class LoginTest extends BaseTest {
                         .websiteId(1)
                         .groupId(1))
                 .password("Q1w2e3r4");
-        userApiService.registerNewUser(customer)
+        Map<String, String> cookies = userApiService.registerNewUser(customer)
                 .then()
-                .assertThat().statusCode(200);
+                .assertThat().statusCode(200).extract().cookies();
         //when
-        MyAccountPage myAccountPage = LoginPage.open().fillLoginForm("automation_" + email + "@gorillagroup.com", "Q1w2e3r4");
+        Selenide.open("https://magento2.smarterspecies.com/");
+        WebDriverRunner.getWebDriver().manage().addCookie((Cookie) cookies);
+
+        /*MyAccountPage myAccountPage = LoginPage.open().fillLoginForm("automation_" + email + "@gorillagroup.com", "Q1w2e3r4");
         //then
         myAccountPage.contactInformation()
                 .shouldHave(Condition.text("Test Automation\nautomation_" + email + "@test.com"));
-
+*/
     }
 }

@@ -1,5 +1,6 @@
 package com.smarterspecies.magento2.api.services;
 
+import io.qameta.allure.Step;
 import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
 import io.restassured.filter.log.RequestLoggingFilter;
@@ -9,6 +10,7 @@ import io.restassured.specification.RequestSpecification;
 
 public class ApiService {
 
+    @Step("Config data: content type")
     RequestSpecification setup() {
         return RestAssured
                 .given()
@@ -16,4 +18,5 @@ public class ApiService {
                 .accept(ContentType.JSON)
                 .filters(new RequestLoggingFilter(), new ResponseLoggingFilter(), new AllureRestAssured());
     }
+
 }

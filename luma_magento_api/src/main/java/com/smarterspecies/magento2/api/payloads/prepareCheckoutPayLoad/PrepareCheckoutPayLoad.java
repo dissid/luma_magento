@@ -1,5 +1,4 @@
-
-package com.smarterspecies.magento2.api.payload;
+package com.smarterspecies.magento2.api.payloads.prepareCheckoutPayLoad;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
@@ -11,13 +10,8 @@ import javax.annotation.Generated;
 @Setter
 @Accessors(fluent = true)
 @Generated("com.robohorse.robopojogenerator")
-public class Customer {
+public class PrepareCheckoutPayLoad {
 
-	@JsonProperty("password")
-	private String password;
-
-	@JsonProperty("customer")
-	private UserPayLoad customer;
-
-
+	@JsonProperty("addressInformation")
+	private AddressInformation addressInformation;
 }
