@@ -26,12 +26,12 @@ public class Customer {
                 "," + customer;
     }
 
-    public Customer setDataForNewCustomer(String email,
-                                          String fistrName,
-                                          String lastName,
-                                          int websiteId,
-                                          int groupId,
-                                          String password) {
+    public Customer setNewCustomerData(String email,
+                                       String fistrName,
+                                       String lastName,
+                                       int websiteId,
+                                       int groupId,
+                                       String password) {
         return customer(
                 new UserPayLoad()
                         .email(email)

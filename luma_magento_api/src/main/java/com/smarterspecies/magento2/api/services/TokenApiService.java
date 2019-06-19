@@ -5,11 +5,19 @@ import io.qameta.allure.Step;
 
 public class TokenApiService extends ApiService {
 
-    @Step("get token for {token}")
-    public String getToken(TokenPayLoad token) {
+    @Step("get user token for {token}")
+    public String getUserToken(TokenPayLoad token) {
         return setup()
                 .body(token)
                 .post("/rest/V1/integration/customer/token")
+                .then()
+                .extract().response().asString().replace("\"", "");
+    }
+    @Step("get admin token for {token}")
+    public String getAdminToken(TokenPayLoad token) {
+        return setup()
+                .body(token)
+                .post("/rest/V1/integration/admin/token")
                 .then()
                 .extract().response().asString().replace("\"", "");
     }
