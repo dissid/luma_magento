@@ -1,11 +1,14 @@
 package com.smarterspecies.magento2.api.tests;
 
+import com.smarterspecies.magento2.api.payloads.addressPayLoad.AddressPayLoad;
+import com.smarterspecies.magento2.api.payloads.addressPayLoad.AddressesItem;
 import com.smarterspecies.magento2.api.payloads.tokenPayLoad.TokenPayLoad;
 import com.smarterspecies.magento2.api.payloads.updateUserPayLoad.UpdateUserPayLoad;
 import com.smarterspecies.magento2.api.payloads.userPayLoad.Customer;
 import com.smarterspecies.magento2.api.services.TokenApiService;
 import com.smarterspecies.magento2.api.services.UpdateUserApiService;
 import com.smarterspecies.magento2.api.services.UserApiService;
+import com.smarterspecies.magento2.common.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -19,11 +22,13 @@ public class UpdateUserDataTest extends BaseTest {
     private final TokenPayLoad tokenPayLoad = new TokenPayLoad();
     private final TokenApiService tokenApiService = new TokenApiService();
     private final UpdateUserPayLoad updateUserPayLoad = new UpdateUserPayLoad();
+    private final AddressesItem addressesItem = new AddressesItem();
+    private final AddressPayLoad addressPayLoad = new AddressPayLoad();
 
 
     @Test
     public void testCanUpdateUserFirstNameAndLastName() {
-        //given
+
         String randEmail = "automation_" + randomAlphanumeric(3) + "@gorillagroup.com";
         String updated_firstname = "Automation_Updated";
         String updated_lastname = "Test_Updated";
@@ -31,16 +36,16 @@ public class UpdateUserDataTest extends BaseTest {
         customer.setNewCustomerData(randEmail, FIRST_NAME, LAST_NAME, WEBSITE_ID, GROUP_ID, PASSWORD);
         tokenPayLoad.username(ADMIN).password(ADMIN_PASS);
         String token = tokenApiService.getAdminToken(tokenPayLoad);
-        //when
+
         int userId = userApiService.registerNewUser(customer)
                 .then()
                 .assertThat().statusCode(200)
                 .and()
                 .extract().response().body().jsonPath().get("id");
 
-        //then
+
         updateUserPayLoad.addDataForUpdateUser(userId, randEmail, updated_firstname, updated_lastname, WEBSITE_ID, GROUP_ID);
-        String result = updateUserApiService.updateUserData(token, updateUserPayLoad, String.valueOf(userId))
+        String result = userApiService.updateUser(token, updateUserPayLoad, String.valueOf(userId))
                 .then()
                 .statusCode(200)
                 .and()
@@ -50,12 +55,11 @@ public class UpdateUserDataTest extends BaseTest {
 
     @Test
     public void testCanAddAddressForUser() {
-        //given
-        String randEmail = "automation_" + randomAlphanumeric(3) + "@gorillagroup.com";
 
+        String randEmail = "automation_" + randomAlphanumeric(3) + "@gorillagroup.com";
         customer.setNewCustomerData(randEmail, FIRST_NAME, LAST_NAME, WEBSITE_ID, GROUP_ID, PASSWORD);
 
-        //when
+
         int userId = userApiService.registerNewUser(customer)
                 .then()
                 .assertThat().statusCode(200)
@@ -63,8 +67,10 @@ public class UpdateUserDataTest extends BaseTest {
                 .extract().response().body().jsonPath().get("id");
         tokenPayLoad.username(randEmail).password(PASSWORD);
         String token = tokenApiService.getAdminToken(tokenPayLoad);
+        AddressesItem addressesItem = new AddressesItem();
 
-        //then
+    //// TODO: 29.06.19
+
     }
 
 }

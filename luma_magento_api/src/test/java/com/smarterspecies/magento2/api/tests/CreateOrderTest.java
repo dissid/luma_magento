@@ -11,6 +11,7 @@ import com.smarterspecies.magento2.api.payloads.prepareCheckoutPayLoad.ShippingA
 import com.smarterspecies.magento2.api.payloads.tokenPayLoad.TokenPayLoad;
 import com.smarterspecies.magento2.api.payloads.userPayLoad.Customer;
 import com.smarterspecies.magento2.api.services.*;
+import com.smarterspecies.magento2.common.BaseTest;
 import org.hamcrest.Matchers;
 import org.testng.annotations.Test;
 
@@ -35,10 +36,9 @@ public class CreateOrderTest extends BaseTest {
 
     @Test
     public void testCanPlaceOrder() {
-        //given
+        String randEmail = "automation_" + randomAlphanumeric(3) + "@gorillagroup.com";
         String productSku = "24-WB04";
-        int qty = 1;
-
+        int productQty = 1;
 
         // Address information
         String region = "New York";
@@ -54,10 +54,10 @@ public class CreateOrderTest extends BaseTest {
         String paymentSystem = "checkmo";
 
         //initialization user data
-        customer.setNewCustomerData(RAND_EMAIL, FIRST_NAME, LAST_NAME, WEBSITE_ID, GROUP_ID, PASSWORD);
+        customer.setNewCustomerData(randEmail, FIRST_NAME, LAST_NAME, WEBSITE_ID, GROUP_ID, PASSWORD);
 
         //initialization user data for getting token
-        tokenPayLoad.username(RAND_EMAIL).password(PASSWORD);
+        tokenPayLoad.username(randEmail).password(PASSWORD);
 
 
         //initialization shipping information
@@ -70,7 +70,7 @@ public class CreateOrderTest extends BaseTest {
                 city,
                 FIRST_NAME,
                 LAST_NAME,
-                RAND_EMAIL,
+                randEmail,
                 telephone,
                 shippingMethod,
                 shippingCarrierCode);
@@ -78,7 +78,7 @@ public class CreateOrderTest extends BaseTest {
 
         //initialization billing and payment information
         createOrderPayLoad.setPaymentrData(paymentSystem,
-                RAND_EMAIL,
+                randEmail,
                 region,
                 regionId,
                 regionCode,
@@ -90,16 +90,13 @@ public class CreateOrderTest extends BaseTest {
                 LAST_NAME,
                 telephone);
 
-
-        //when
         userApiService.registerNewUser(customer);
         String token = tokenApiService.getUserToken(tokenPayLoad);
         String quoteId = quoteApiService.getQuoteId(token);
-        addItemsToCartPayLoad.setProductToCart(productSku, qty, quoteId);
+        addItemsToCartPayLoad.setProductToCart(productSku, productQty, quoteId);
         addItemsToCartApiService.addingProductToCart(addItemsToCartPayLoad, token);
         prepareCheckoutApiService.setShippingInformation(token, prepareCheckoutPayLoad);
 
-        //then
         createOrderApiService.placeOrder(token, createOrderPayLoad)
                 .then()
                 .assertThat().statusCode(200)
