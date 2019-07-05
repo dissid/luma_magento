@@ -63,7 +63,6 @@ public class ShoppingCartTest extends BaseTest {
 
     @Test
     public void testCanEstimateShippingAndTax() {
-        LoginPage.open();
         LoginPage.open().fillLoginForm(randEmail, PASSWORD);
         ShoppingCartPage
                 .open()

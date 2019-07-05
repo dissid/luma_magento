@@ -2,7 +2,9 @@ package com.smarterspecies.magento2.api.services;
 
 import com.smarterspecies.magento2.api.payloads.updateUserPayLoad.UpdateUserPayLoad;
 import com.smarterspecies.magento2.api.payloads.userPayLoad.Customer;
+import io.qameta.allure.Link;
 import io.qameta.allure.Step;
+import io.qameta.allure.Story;
 import io.restassured.response.Response;
 
 public class UserApiService extends ApiService {

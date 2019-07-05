@@ -12,6 +12,10 @@ import com.smarterspecies.magento2.api.payloads.tokenPayLoad.TokenPayLoad;
 import com.smarterspecies.magento2.api.payloads.userPayLoad.Customer;
 import com.smarterspecies.magento2.api.services.*;
 import com.smarterspecies.magento2.common.BaseTest;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Issue;
+import io.qameta.allure.Link;
+import io.qameta.allure.Story;
 import org.hamcrest.Matchers;
 import org.testng.annotations.Test;
 
@@ -19,7 +23,7 @@ import java.util.List;
 
 import static java.util.Collections.*;
 import static org.apache.commons.lang3.RandomStringUtils.randomAlphanumeric;
-
+@Epic("Create Order")
 public class CreateOrderTest extends BaseTest {
 
     private final Customer customer = new Customer();
@@ -33,6 +37,7 @@ public class CreateOrderTest extends BaseTest {
     private final CreateOrderApiService createOrderApiService = new CreateOrderApiService();
     private final PrepareCheckoutPayLoad prepareCheckoutPayLoad = new PrepareCheckoutPayLoad();
     private final PrepareCheckoutApiService prepareCheckoutApiService = new PrepareCheckoutApiService();
+
 
     @Test
     public void testCanPlaceOrder() {

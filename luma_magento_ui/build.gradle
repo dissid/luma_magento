@@ -13,5 +13,11 @@ test {
     }
 
     test.outputs.upToDateWhen { false }
-}
 
+    useTestNG() {
+    }
+
+    filter{
+        includeTestsMatching "com.smarterspecies.magento2.ui.tests.*"
+    }
+}

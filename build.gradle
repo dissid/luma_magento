@@ -17,9 +17,7 @@ subprojects {
     apply plugin: 'io.franzbecker.gradle-lombok'
     apply plugin: 'io.qameta.allure'
 
-    test{
-        useTestNG()
-    }
+
 
     allure {
         version = '2.7.0'

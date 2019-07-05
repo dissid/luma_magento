@@ -21,7 +21,7 @@ public class RegistrationUserTest extends BaseTest {
     private final TokenPayLoad tokenPayLoad = new TokenPayLoad();
     private final TokenApiService tokenApiService = new TokenApiService();
 
-    @Test
+    @Test(groups = "smoke")
     public void testCanRegisterNewUser() {
         String randEmail = "automation_" + randomAlphanumeric(3) + "@gorillagroup.com";
         customer.setNewCustomerData(randEmail, FIRST_NAME, LAST_NAME, WEBSITE_ID, GROUP_ID, PASSWORD);

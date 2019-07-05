@@ -1,12 +1,10 @@
 package com.smarterspecies.magento2.api.tests;
 
-import com.smarterspecies.magento2.api.payloads.addressPayLoad.AddressPayLoad;
 import com.smarterspecies.magento2.api.payloads.addressPayLoad.AddressesItem;
 import com.smarterspecies.magento2.api.payloads.tokenPayLoad.TokenPayLoad;
 import com.smarterspecies.magento2.api.payloads.updateUserPayLoad.UpdateUserPayLoad;
 import com.smarterspecies.magento2.api.payloads.userPayLoad.Customer;
 import com.smarterspecies.magento2.api.services.TokenApiService;
-import com.smarterspecies.magento2.api.services.UpdateUserApiService;
 import com.smarterspecies.magento2.api.services.UserApiService;
 import com.smarterspecies.magento2.common.BaseTest;
 import org.testng.Assert;
@@ -18,12 +16,9 @@ public class UpdateUserDataTest extends BaseTest {
 
     private final Customer customer = new Customer();
     private final UserApiService userApiService = new UserApiService();
-    private final UpdateUserApiService updateUserApiService = new UpdateUserApiService();
     private final TokenPayLoad tokenPayLoad = new TokenPayLoad();
     private final TokenApiService tokenApiService = new TokenApiService();
     private final UpdateUserPayLoad updateUserPayLoad = new UpdateUserPayLoad();
-    private final AddressesItem addressesItem = new AddressesItem();
-    private final AddressPayLoad addressPayLoad = new AddressPayLoad();
 
 
     @Test

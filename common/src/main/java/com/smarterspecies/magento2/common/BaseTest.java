@@ -2,7 +2,10 @@ package com.smarterspecies.magento2.common;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.selenide.AllureSelenide;
 import io.restassured.RestAssured;
+import org.aeonbits.owner.ConfigFactory;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeSuite;
 
@@ -18,10 +21,12 @@ public class BaseTest {
 
     @BeforeSuite
     public void setUp() {
-        RestAssured.baseURI = "https://magento2.smarterspecies.com";
-        Configuration.baseUrl = "https://magento2.smarterspecies.com";
+        ProjectConfig config = ConfigFactory.create(ProjectConfig.class, System.getProperties());
+        RestAssured.baseURI = config.host();
+        Configuration.baseUrl = config.host();
         Configuration.timeout = 5000;
-        Configuration.headless = true;
+        Configuration.headless = false;
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(false));
     }
     @AfterMethod
     public void stop(){
