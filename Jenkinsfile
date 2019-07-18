@@ -6,15 +6,15 @@ node {
         url: 'https://github.com/dissid/luma_magento'
     }
     stage("build"){
-        sh "/.gradlew clean luma_magento_api:assemble"
+        sh "./gradlew clean luma_magento_api:assemble"
     }
 
     stage("run api tests"){
-        sh "/.gradlew luma_magento_api:test"
+        sh "./gradlew luma_magento_api:test"
     }
 
     stage("run ui tests"){
-            sh "/.gradlew luma_magento_ui:test"
+            sh "./gradlew luma_magento_ui:test"
         }
 
 
