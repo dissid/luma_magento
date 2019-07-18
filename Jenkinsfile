@@ -17,10 +17,10 @@ node {
             sh "./gradlew luma_magento_ui:test"
     }
     allure([
-                    includeProperties: false,
-                    jdk: '',
-                    properties: [],
-                    reportBuildPolicy: 'ALWAYS',
-                    results: [[path: 'luma_magento_api/build/allure-results']]
-            ])
+            includeProperties: false,
+            jdk: '',
+            properties: [],
+            reportBuildPolicy: 'ALWAYS',
+            results: [[path: 'luma_magento_api/build/allure-results']]
+    ])
 }
