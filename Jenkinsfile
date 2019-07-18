@@ -16,12 +16,17 @@ node {
     stage("run ui tests"){
             sh "./gradlew luma_magento_ui:test"
     }
-
-    allure([
-        includeProperties: false,
-        jdk: '',
-        properties: [],
-        reportBuildPolicy: 'ALWAYS',
-        results: [[path: 'luma_magento_api/build/allure-results']]
-    ])
+    stage("Reports"){
+        step{
+            script{
+                allure([
+                    includeProperties: false,
+                    jdk: '',
+                    properties: [],
+                    reportBuildPolicy: 'ALWAYS',
+                    results: [[path: 'luma_magento_api/build/allure-results']]
+                ])
+            }
+        }
+    }
 }
