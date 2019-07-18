@@ -23,6 +23,4 @@ node {
                     reportBuildPolicy: 'ALWAYS',
                     results: [[path: 'luma_magento_api/build/allure-results']]
             ])
-
-    }
 }
